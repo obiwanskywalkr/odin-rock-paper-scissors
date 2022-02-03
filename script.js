@@ -1,72 +1,85 @@
-
-// When the user inputs a case-insensitive guess (playerSelection)
-const playerInput = undefined;
+// When the user clicks a button (playerSelection)
 let playerSelection = undefined;
-const computerSelection = computerPlay();
-let playerWins = 0;
-let computerWins = 0;
-let ties = 0;
+
+buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        playerSelection = e.currentTarget.id;
+        playRound(playerSelection, computerPlay());
+    });
+});
 
 // Get a randomly generated guess for the computer's turn (computerPlay)
+let computerSelection = undefined
+
 function computerPlay() {
     let randomInt = (Math.floor(Math.random() * 3) + 1);
-    let computerGuess = undefined;
 
     if (randomInt == 1) {
-        computerGuess = 'ROCK';
-        return computerGuess;
+        computerSelection = 'rock';
+        return computerSelection;
     } else if (randomInt == 2) {
-        computerGuess = 'PAPER';
-        return computerGuess;
+        computerSelection = 'paper';
+        return computerSelection;
     } else if (randomInt == 3) {
-        computerGuess = 'SCISSORS';
-        return computerGuess;
+        computerSelection = 'scissors';
+        return computerSelection;
     } else {
-        console.log(`The Math.random function got ${randomInt} somehow???`)
-        return 'ERROR';
+        randomInt = 0;
+        return computerPlay();
     }
 }
 
-// Compare the user's guess to the computer's guess (playRound)
-    // If user chooses rock and computer chooses paper, computer wins
-    // If user chooses rock and computer chooses scissors, user wins
-    // If user chooses paper and computer chooses scissors, computer wins
-    // If user chooses paper and computer chooses rock, user wins
-    // If user chooses scissors and computer chooses rock, computer wins
-    // if user chooses scissors and computer chooses paper, user wins
-function playRound(playerInput, computerSelection) {
-    // Prompt user for input for every round played
-    playerInput = window.prompt('Rock, paper, or scissors?');
-    playerSelection = playerInput.toUpperCase();
+// Compare the user's input to the computer's input (playRound)
+let ties = 0;
+let playerScore = 0;
+let computerScore = 0;
 
-    if (playerSelection === computerSelection) {
+const results = document.querySelector('.results-container');
+
+function playRound(playerSelection, computerSelection) {
+    results.textContent = ''
+
+    if (playerScore < 5 && computerScore < 5) {
+        if (playerSelection === computerSelection) {
         ++ties;
+        return results.textContent = `This round was a draw.`
 
-    } else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
-        return ++computerWins;
+        } else if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+                (playerSelection == 'paper' && computerSelection == 'rock') ||
+                (playerSelection == 'scissors' && computerSelection == 'paper')) {
+                ++playerScore;
+                updatePlayerTally();
+                return results.textContent = `You won this round!`
 
-    } else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
-        return ++playerWins;
-
-    } else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
-        return ++computerWins;
-
-    } else if (playerSelection == 'PAPER' && computerSelection == 'ROCK') {
-        return ++playerWins;
-
-    } else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
-        return ++computerWins;
-
-    } else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
-        return ++playerWins;
-
+        } else if((playerSelection == 'rock' && computerSelection == 'paper') ||
+                (playerSelection == 'paper' && computerSelection == 'scissors') ||
+                (playerSelection == 'scissors' && computerSelection == 'rock')) {
+                ++computerScore;
+                updateComputerTally();
+                return results.textContent = `The computer won this round.`
+        } 
     } else {
-        // Alert users of typo 
-        window.alert('ERROR (Hint: Check your spelling!)');
-        // Restart round
-        return (playRound(playerInput, computerPlay()));
+        return whoWon();
     }
 }
 
-    // Print the results
-console.log(playRound());
+// Display the running score
+function updatePlayerTally() {
+    const playerTally = document.querySelector('#player-score');
+    playerTally.textContent = `Your score: ${playerScore}`
+}
+
+function updateComputerTally(){
+    const computerTally = document.querySelector('#computer-score');
+    computerTally.textContent = `Computer's score: ${computerScore}`
+}
+
+//Announce a winner once one player reaches 5 points
+function whoWon(playerScore, computerScore) {
+    if (playerScore > computerScore) {
+        return results.textContent = `You reached 5 points first, you won the game!`
+    } else {
+        return results.textContent = `The computer reached 5 points first, you lost the game.`
+    }
+}
