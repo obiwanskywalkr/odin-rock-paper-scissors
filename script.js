@@ -1,9 +1,9 @@
 // When the user clicks a button (playerSelection)
 let playerSelection = undefined;
 
-buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+buttons = document.querySelectorAll('input');
+buttons.forEach((input) => {
+    input.addEventListener('click', (e) => {
         playerSelection = e.currentTarget.id;
         playRound(playerSelection, computerPlay());
     });
@@ -35,7 +35,7 @@ let ties = 0;
 let playerScore = 0;
 let computerScore = 0;
 
-const results = document.querySelector('.results-container');
+const results = document.querySelector('#info');
 
 function playRound(playerSelection, computerSelection) {
     results.textContent = ''

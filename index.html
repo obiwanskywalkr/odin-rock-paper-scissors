@@ -14,20 +14,22 @@
 <body>
     <h1>You vs. Computer</h1>
     <p id='info'>First to score 5 points wins...</p>
-    <!-- Transfer output from results container to info-->
-    <div class='results-container'></div>
-    <div class='selection' id="player-selection"></div>
-    <div class='selection' id="computer-selection"></div>
-    <div id='player-score'>Your score: 0</div>
-    <div id='computer-score'>Computer's score: 0</div>
-    
+    <div class="score-board">
+        </div><div class='selection' id="player-selection"><img src="./question-mark.png">
+            <div id='player-score'>Your score: 0</div>
+        </div>
+        <div class='selection' id="computer-selection"><img src="./question-mark.png">
+            <div id='computer-score'>Computer's score: 0</div>
+        </div>
+    </div>
     <div class='button-container'>
         <!--Change from buttons to divs with icons-->
-        <button id='rock'>Rock</button>
-        <button id='paper'>Paper</button>
-        <button id='scissors'>Scissors</button>
-    </div>
-  
+        <input type='image' id='rock' src='./rock.png' ></input>
+        <input type='image' id='paper' src='./paper.png'></input>
+        <input type='image' id='scissors' src='./scissors.png'></input>
+        </div>
+
+    <footer>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></footer>
 
 <script src="./script.js"></script>
 </body>
