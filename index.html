@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Rock Paper Scissors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">    <title>Rock Paper Scissors</title>
     <header>ROCK PAPER SCISSORS</header>
 </head>
 <body>
-    <h1>You vs. Computer</h1>
-    <p id='info'>First to score 5 points wins...</p>
-    <div class="score-board">
-        </div><div class='selection' id="player-selection"><img src="./question-mark.png">
+    <h1 class="title">You vs. Computer</h1>
+    <h3 id='info' class="info">First to score 5 points wins...</h3>
+   
+    <div class="game-board">
+        <div class='player-tag'>
+            <img id='player-input' src="./question-mark.png">
             <div id='player-score'>Your score: 0</div>
         </div>
-        <div class='selection' id="computer-selection"><img src="./question-mark.png">
-            <div id='computer-score'>Computer's score: 0</div>
+        <div class='computer-tag'>
+            <img id='computer-input' src="./question-mark.png">
+            <div id='computer-score'>Computer score: 0</div>
         </div>
     </div>
+    <h3 class="info">What will you choose?</h3>
     <div class='button-container'>
-        <!--Change from buttons to divs with icons-->
         <input type='image' id='rock' src='./rock.png' ></input>
         <input type='image' id='paper' src='./paper.png'></input>
         <input type='image' id='scissors' src='./scissors.png'></input>
-        </div>
+    </div>
 
-    <footer>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></footer>
+    <footer>
+        <div>Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
+             | Created by <a href="https://github.com/obiwanskywalkr">obiwanskywalkr</a
+        </div>
+    </footer>
 
 <script src="./script.js"></script>
 </body>
