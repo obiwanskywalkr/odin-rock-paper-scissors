@@ -20,13 +20,13 @@ function computerPlay() {
     let randomInt = (Math.floor(Math.random() * 3) + 1);
 
     if (randomInt == 1) {
-        computerInput.setAttribute('src', './rock.png')
+        computerInput.setAttribute('src', './images/rock.png')
         return computerSelection = 'rock';
     } else if (randomInt == 2) {
-        computerInput.setAttribute('src', './paper.png')
+        computerInput.setAttribute('src', './images/paper.png')
         return computerSelection = 'paper';
     } else if (randomInt == 3) {
-        computerInput.setAttribute('src', './scissors.png')
+        computerInput.setAttribute('src', './images/scissors.png')
         return computerSelection = 'scissors';
     } else {
         randomInt = 0;
@@ -65,12 +65,12 @@ function playRound(playerSelection, computerSelection) {
 // Update display for the current score
 function updatePlayerScore() {
     const playerTag = document.querySelector('#player-score');
-    playerTag.textContent = `Your score: ${playerScore}`
+    playerTag.textContent = `${playerScore}`
 }
 
 function updateComputerScore(){
     const computerTag = document.querySelector('#computer-score');
-    computerTag.textContent = `Computer's score: ${computerScore}`
+    computerTag.textContent = `${computerScore}`
 }
 // Play rounds until one player reaches 5 points
 function playGame(playRound) {
@@ -89,6 +89,6 @@ function whoWon(playRound) {
     if (playerScore > computerScore) {
         results.textContent = 'You reached 5 points first. You won the game!'
     } else if (playerScore < computerScore) {
-        results.textContent = 'The computer reached five points first. You lost the game.'
+        results.textContent = 'The computer reached five points first. You lost the game!'
     }
 }
