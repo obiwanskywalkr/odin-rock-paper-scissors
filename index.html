@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap" rel="stylesheet">    <title>Rock Paper Scissors</title>
-    <header>ROCK PAPER SCISSORS</header>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1 class="title">You vs. Computer</h1>
-    <h3 id='info' class="info">First to score 5 points wins...</h3>
-   
-    <div class="game-board">
-        <div class='player-tag'>
-            <img id='player-input' src="./question-mark.png">
-            <div id='player-score'>Your score: 0</div>
+    <header>ROCK PAPER SCISSORS</header>
+    <div class="body">
+        <h1 class="title">PLAYER vs COMPUTER</h1>
+        <h3 id='info' class="info">First to score 5 points wins...</h3>
+       
+        <div class="game-board">
+            <div class='player-tag'>
+                <img id='player-input' src="./images/question-mark.png">
+                <h4>Player Score</h4>
+                <h4 id='player-score'>0</h4>
+            </div>
+            <div class='computer-tag'>
+                <img id='computer-input' src="./images/question-mark.png">
+                <h4>Computer Score</h4>
+                <h4 id='computer-score'>0</h4>
+            </div>
         </div>
-        <div class='computer-tag'>
-            <img id='computer-input' src="./question-mark.png">
-            <div id='computer-score'>Computer score: 0</div>
+        <h3 class="info">What will you choose?</h3>
+        <div class='button-container'>
+            <input type='image' class="button" id='rock' src='./images/rock.png' ></input>
+            <input type='image' class="button" id='paper' src='./images/paper.png'></input>
+            <input type='image' class="button" id='scissors' src='./images/scissors.png'></input>
         </div>
     </div>
-    <h3 class="info">What will you choose?</h3>
-    <div class='button-container'>
-        <input type='image' id='rock' src='./rock.png' ></input>
-        <input type='image' id='paper' src='./paper.png'></input>
-        <input type='image' id='scissors' src='./scissors.png'></input>
-    </div>
-
     <footer>
         <div>Icons by <a target="_blank" href="https://icons8.com">Icons8</a>
              | Created by <a href="https://github.com/obiwanskywalkr">obiwanskywalkr</a>
